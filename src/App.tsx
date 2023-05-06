@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { HighlightedText } from "./HighlightedText";
 
-import winkNLP from 'wink-nlp';
-import model from 'wink-eng-lite-web-model';
-import its from 'wink-nlp/src/its.js';
-const nlp = winkNLP(model);
-
-const findIndex = (array, text) => {
-    return array.map((token, index) => token === text ? index : false)
-        .filter(index => index !== false)
-}
-
-interface ColorSetting {
-    index: number,
-    color: string,
-}
-
 export const App = () => {
-    const [text, setText] = useState('The cat jumped over the fence.')
+    const [text, setText] = useState('Last week, I had to work two night shifts at the railroad station.\nNew text')
 
     return (
         <div className="app-container">

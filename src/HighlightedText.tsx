@@ -1,33 +1,17 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import winkNLP from 'wink-nlp';
 import model from 'wink-eng-lite-web-model';
 import its from 'wink-nlp/src/its.js';
 
 const nlp = winkNLP(model);
 
-function countWords(arr) {
-    const wordCount = {};
-
-    for (let word of arr) {
-        if (wordCount.hasOwnProperty(word)) {
-            wordCount[word]++;
-        } else {
-            wordCount[word] = 1;
-        }
-    }
-
-    return wordCount;
-}
-
-export const HighlightedText = ({ text }) => {
+export const HighlightedText = ({ text  }) => {
     const doc = useMemo(() => nlp.readDoc(text), [text])
     const words = useMemo(() => doc.tokens().out(), [doc])
 
     const tokens = useMemo(() => {
         return doc.tokens().out(its.pos);
     }, [doc])
-
-    console.log(countWords(tokens))
 
     return (
         <div>

@@ -9,9 +9,12 @@ body {
 }
 
 .text-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
 }
 
 p {
